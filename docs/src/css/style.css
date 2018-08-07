@@ -1,0 +1,49 @@
+body{
+	background-image: url('../img/fondoNY.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
+.navMenu{
+	background: rgba(2, 106, 167, 0.4);
+}
+.iconTrello{
+	border-radius: 4px;
+	background: rgba(240, 240, 240, 0.4);
+}
+.iconTrello p {
+	font-size: 15px;
+	margin-top: 12px;
+	padding: 8px;
+}
+.iconTrello p i{
+
+}
+.inputSearch{
+	border: none;
+	margin-top: 12px;
+	background: rgba(240, 240, 240, 0.4);
+}
+.colMargenes{
+	padding-left: 5px;
+	padding-right: 0px;
+}
+.imgLogo{
+	width: 120px;
+	display: block;
+	margin: auto;
+	margin-top: 13px;
+}
+.btnIcon{
+	width: 40px;
+	margin-top: 13px;
+	background: rgba(240, 240, 240, 0.4);
+	float: right;
+	margin-right: 10px;
+}
+.avatar{
+	border-radius: 100px;
+}
+.spanLetras{
+	margin-left: -2px;
+}
