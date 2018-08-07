@@ -1,0 +1,14 @@
+{
+  "name": "ejerciciotrello",
+  "version": "0.0.1",
+  "description": "ejercicio replica trello",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "trello"
+  ],
+  "author": "valeriapeñaloza\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[P\u001b[D \u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[\u001b[CV\u001b[3~\u001b[3~\u001b[3~\u001b[\u001b[3\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[ Valeria Peñaloza",
+  "license": "ISC"
+}
