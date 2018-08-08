@@ -1,4 +1,5 @@
 window.view = {}
+//funcion que muestra recuadro de crear lista
 window.view.addList = () => {
   let divAddList = document.getElementById('addList');
   divAddList.innerHTML =
@@ -10,6 +11,7 @@ window.view.addList = () => {
   <button class="btn btnCloseList" onclick="window.view.closeList()"><i class="fas fa-times"></i></button>
   </div>
   `;
+  window.model.focusInput(document.getElementById("nameList"));
 }
 window.view.closeList = () => {
   let divAddList = document.getElementById('addList');
@@ -19,13 +21,16 @@ window.view.closeList = () => {
 
 window.view.addNewList = () => {
   let nameList = document.getElementById('nameList').value;
-  document.getElementById('nameList').value = '';
-  let divNewList = document.getElementById('newList');
-  divNewList.innerHTML += 
-  `<div class="col-12 pt-3 pb-3 contNewList">
-  <p class="d-inline text-white">`+nameList+`</p>
-  <button class="btn float-right btnNewListIcon"><i class="fas fa-ellipsis-h text-white"></i></button>
-  <button class="btn mt-3 col-12 btnNewList px-0"><i class="fas fa-plus"></i> Añadir nueva Tarea</button>
-  </div>`;
-
+  if(window.model.validaLargoNuevaLista(nameList)){
+    document.getElementById('nameList').value = '';
+    document.getElementById('newList').classList.remove('displayNone');
+    document.getElementById('newList').classList.add('displayBlock');
+    let divNewList = document.getElementById('newList');
+    divNewList.innerHTML += 
+    `<div class="col-12 pt-3 pb-3 contNewList">
+    <p class="d-inline text-white">`+nameList+`</p>
+    <button class="btn float-right btnNewListIcon"><i class="fas fa-ellipsis-h text-white"></i></button>
+    <button class="btn mt-3 col-12 btnNewList px-0"><i class="fas fa-plus"></i> Añadir nueva Tarea</button>
+    </div>`;
+  }
 }

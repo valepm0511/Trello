@@ -20,6 +20,8 @@ window.view.closeList = () => {
 window.view.addNewList = () => {
   let nameList = document.getElementById('nameList').value;
   document.getElementById('nameList').value = '';
+  document.getElementById('newList').classList.remove('displayNone');
+  document.getElementById('newList').classList.add('displayBlock');
   let divNewList = document.getElementById('newList');
   divNewList.innerHTML += 
   `<div class="col-12 pt-3 pb-3 contNewList">
