@@ -44,6 +44,38 @@ body{
 .avatar{
 	border-radius: 100px;
 }
-.spanLetras{
+.spanAvatar{
 	margin-left: -2px;
+}
+.titleBoard{
+	font-size: 18px;
+	font-weight: 500;
+	margin-top: 20px;
+	color: #ffffff;
+}
+.btnIconNav{
+	background: transparent;
+	color: #ffffff;
+	margin-top: 12px;
+}
+.btnIconNav:hover{
+	background: rgba(240, 240, 240, 0.4);
+}
+.btnAddList{
+	background: transparent;
+	color: #ffffff;
+	margin-top: 20px;
+	padding: 10px;
+	/*width: 400px;*/
+}
+.btnAddList:hover{
+	background: rgba(240, 240, 240, 0.4);
+}
+.contAddList{
+	background: rgba(240, 240, 240, 0.4);
+	border-radius: 5px;
+}
+.btnCloseList{
+	background: transparent;
+	color: #666666;
 }
