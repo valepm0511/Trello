@@ -15,12 +15,12 @@
 </head>
 <body>
 	<div class="container-fluid">
+		<!-- inicio menu principal -->
 		<div class="row navMenu">
 			<div class="col-1 colMargenes">
 				<div class="iconTrello m-0">
 					<p class="text-white text-center"><i class="fab fa-trello"></i><b> Tableros</b></p>
 				</div>
-				
 			</div>
 			<div class="col-2 colMargenes">
 				<div class="input-group">
@@ -29,7 +29,6 @@
 						<span class="input-group-text inputSearch"><i class="fas fa-search text-white"></i></span>
 					</div>
 				</div>
-
 			</div>
 			<div class="col-6  colMargenes">
 				<img src="src/img/logoTrello.png" class="img-fluid imgLogo">
@@ -41,6 +40,8 @@
 				<button class="btn btnIcon"><i class="fas fa-plus text-white"></i></button>
 			</div>
 		</div>
+		<!-- fin menu principal -->
+		<!-- inicio menu secundario -->
 		<div class="row">
 			<div class="col-3">
 				<p class="titleBoard">Tablero - Reto de Código</p>
@@ -50,12 +51,17 @@
 				<button class="btn btnIconNav"><i class="fas fa-unlock-alt"></i> Privado </button>
 			</div>
 		</div>
+		<!-- fin menu secundario -->
 		<div class="row">
-			<div class="col-12" id="addList">
-				<button type="button" class="btn col-3 btnAddList" onclick="window.view.addList()"><span class="float-left"><i class="fas fa-plus"></i> Añadir una lista</span></button>
+			<div class="col-3">
+				<div id="addList">
+					<button type="button" class="btn col-12 btnAddList" onclick="window.view.addList()"><span class="float-left"><i class="fas fa-plus"></i> Añadir una lista</span></button>
+				</div>
+			</div>
+			<div class="col-3" id="newList">
 			</div>
 		</div>
-		<!-- div oculto -->
+		
 		
 	</div>
 	<!-- jquery -->

@@ -79,3 +79,20 @@ body{
 	background: transparent;
 	color: #666666;
 }
+.btnNewListIcon{
+	margin-top: -7px;
+	background: transparent;
+}
+.btnNewListIcon:hover{
+	background: rgba(240, 240, 240, 0.4);
+}
+
+.contNewList{
+	border-radius: 5px;
+	background: rgba(2, 106, 167, 0.5);
+
+}
+.btnNewList{
+	background: rgba(240, 240, 240, 0.4);
+	color: #ffffff;
+}
