@@ -1,74 +1,90 @@
-window.view = {}
-//funcion que muestra recuadro de crear lista
+window.view = {};
+// funcion que muestra recuadro de crear lista
 window.view.addList = () => {
   let divAddList = document.getElementById('addList');
   divAddList.innerHTML =
   `<div class="col-12 bg-white p-3 contAddList">
   <form class="form-inline">
-  <input type="text" class="form-control mb-2 col-12" id="nameList" placeholder="Ingrese nombre de la Lista">
+  <input type="text" class="form-control mb-2 col-12" id="nameList" placeholder="Ingrese nombre de la Lista" required>
   </form>
   <button class="btn btn-info" onclick="window.view.addNewList()">Añadir</button>
   <button class="btn btnCloseList" onclick="window.view.closeList()"><i class="fas fa-times"></i></button>
   </div>
   `;
-  window.model.focusInput(document.getElementById("nameList"));
-}
+  window.model.focusInput(document.getElementById('nameList'));
+};
 
-//funcion para cerrar recuadro para crear lasl istas
+// funcion para cerrar recuadro para crear las listas
 window.view.closeList = () => {
   let divAddList = document.getElementById('addList');
   divAddList.innerHTML =
-  `<button type="button" class="btn col-3 btnAddList" onclick="window.view.addList()"><span class="float-left"><i class="fas fa-plus"></i> Añadir una lista</span></button>`;
-}
+  `<button type="button" class="btn col-12 btnAddList" onclick="window.view.addList()"><span class="float-left">
+  <i class="fas fa-plus"></i> Añadir una lista</span></button>`;
+};
 
-//funcion para crear las listas 
+// funcion para crear las listas 
 window.view.addNewList = () => {
   let nameList = document.getElementById('nameList').value;
-  //funcion para validar que a la lista se le ponga un nombre
-  if(window.model.validaLargoNuevaLista(nameList)){
+  // funcion para validar que a la lista se le ponga un nombre
+  if (window.model.validateLengthNewList(nameList)){
     document.getElementById('nameList').value = '';
     document.getElementById('newList').classList.remove('displayNone');
     document.getElementById('newList').classList.add('displayBlock');
     let divNewList = document.getElementById('newList');
-    divNewList.innerHTML = 
+    let cantDiv = document.getElementsByClassName("contNewList").length;
+    console.log(cantDiv);
+    divNewList.innerHTML += 
     `<div class="col-12 pt-3 pb-3 contNewList">
     <p class="d-inline text-white">${nameList}</p>
-    <button class="btn float-right btnNewListIcon"><i class="fas fa-ellipsis-h text-white"></i></button>
-    <div id="newListTextArea">
-    <button class="btn mt-3 col-12 btnNewList px-0 displayBlock" onclick="window.view.newList()" id="btnaddTextArea"><i class="fas fa-plus"></i> Añadir nueva Tarea</button>
+    <button class="btn float-right btnNewListIcon" onclick="window.view.deleteList()"><i class="fas fa-ellipsis-h text-white"></i></button>
+    <div id="newListTextArea${cantDiv}">
+    <button class="btn mt-3 col-12 btnNewList px-0 displayBlock" onclick="window.view.newList(${cantDiv})" id="btnaddTextArea"><i class="fas fa-plus"></i> Añadir nueva Tarea</button>
+    </div>
+    <div id="buttonTextArea${cantDiv}">
     </div>
     </div>
     `;
   }
-}
+};
 
-//funcion para agragar nueva lista de tareas
-window.view.newList = () => {
-  let newListTextArea = document.getElementById('newListTextArea');
-  // document.getElementById('btnaddTextArea').classList.remove('displayBlock');
-  // document.getElementById('btnaddTextArea').classList.add('displayNone');
+// funcion para agragar nueva lista de tareas
+window.view.newList = (codID) => {
 
+  let newListTextArea = document.getElementById('buttonTextArea'+codID);
+  document.getElementById('newListTextArea'+codID).innerHTML = '';
   newListTextArea.innerHTML = 
   `<div class="form-group displayBlock" id="constTextArea">
-  <textarea class="form-control" rows="5" id="textAreaList"></textarea>
-  <button class="btn" onclick="window.view.viewTextArea()">añadir lista</button>
+  <textarea class="form-control mt-2" rows="5" id="textAreaList${codID}" placeholder="Ingrese tareas" required></textarea>
+  <button class="btn btn-warning col-12 text-white mt-2" onclick="window.view.viewTextArea(${codID})">Añadir Lista</button>
   </div>  
   `;
-  window.model.focusInput(document.getElementById("textAreaList"));
-}
+  window.model.focusInput(document.getElementById('textAreaList'+codID));
+};
 
-window.view.viewTextArea = () => {
-  let textAreaList = document.getElementById('textAreaList').value;
-  document.getElementById('textAreaList').value = "";
-  // document.getElementById('constTextArea').classList.remove('displayBlock');
-  // document.getElementById('constTextArea').classList.add('displayNone');
-  let newListTextArea = document.getElementById('newListTextArea');
-  newListTextArea.innerHTML = 
-  `<div class="col-12 textAreaStyle"> 
-  <p>${textAreaList}</p>
-  </div>
-  <div id="newListTextArea">
-  <button class="btn mt-3 col-12 btnNewList px-0" onclick="window.view.newList()" id="btnaddTextArea"><i class="fas fa-plus"></i> Añadir nueva Tarea</button>
-  </div>
-  `;
-}
+// funcion para escribir texto en textarea
+window.view.viewTextArea = (codID) => {
+  let textAreaList = document.getElementById('textAreaList'+codID).value;
+  document.getElementById('textAreaList'+codID).value = '';
+  if (window.model.validateLengthTextArea(textAreaList)){
+    let newListTextArea = document.getElementById('newListTextArea'+codID);
+    newListTextArea.innerHTML += 
+    `<div class="col-12 textAreaStyle"> 
+    <p>${textAreaList}</p>
+    </div>
+    `;
+    /*newListTextArea.innerHTML += 
+    `<div id="newListTextArea">
+    <textarea class="form-control" rows="5" id="textAreaList" placeholder="Ingrese tareas" required></textarea>
+    <button class="btn btn-warning col-12 text-white mt-2" onclick="window.view.viewTextArea()">Añadir Lista</button>
+    </div>
+    `;*/
+  }
+};
+
+// funcion para eliminar lista
+window.view.deleteList = () => {
+  let deleteList = document.getElementById('newList');
+  document.getElementById('newList').classList.remove('displayBlock');
+  document.getElementById('newList').classList.add('displayNone');
+  deleteList.innerHTML = '';
+};
