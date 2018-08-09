@@ -96,13 +96,6 @@ body{
 	background: rgba(240, 240, 240, 0.4);
 	color: #ffffff;
 }
-.displayNone{
-	display: none;
-}
-.displayBlock{
-	display: block;
-}
-
 .textAreaStyle{
 	background: #ffffff;
 	color: #ffffff;
