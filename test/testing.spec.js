@@ -15,6 +15,12 @@ describe('funciones que debe exponer', () =>{
 	it('funcion lista ya creada',() =>{
 		assert.isFunction(window.view.addNewList);
 	});
+	it('funcion para agragar nueva lista de tareas',() =>{
+		assert.isFunction(window.view.newList);
+	});
+	it('funcion para escribir texto en textarea',() =>{
+		assert.isFunction(window.view.viewTextArea);
+	});
 });
 
 //valiando campos de textos vacios
